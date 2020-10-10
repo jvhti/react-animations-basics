@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Modal.css';
-import Transition from "react-transition-group/cjs/Transition";
+import CSSTransition from "react-transition-group/cjs/CSSTransition";
 
 const animationTiming = {
   enter: 400,
@@ -10,20 +10,12 @@ const animationTiming = {
 
 const modal = (props) => {
   return (
-      <Transition in={props.show} timeout={animationTiming} mountOnEnter unmountOnExit>
-        {state => {
-          const classes = ['Modal',
-            state === 'entering' ? 'Open'
-                : state === 'exiting' ? 'Closed' : null];
-
-          return (
-            <div className={classes.join(' ')}>
-              <h1>A Modal</h1>
-              <button className="Button" onClick={props.closed}>Dismiss</button>
-            </div>
-          );
-        }}
-      </Transition>
+      <CSSTransition in={props.show} timeout={animationTiming} mountOnEnter unmountOnExit classNames="fade-slide">
+        <div className="Modal">
+          <h1>A Modal</h1>
+          <button className="Button" onClick={props.closed}>Dismiss</button>
+        </div>
+      </CSSTransition>
   );
 }
 
