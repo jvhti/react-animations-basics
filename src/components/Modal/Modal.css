@@ -13,16 +13,11 @@
     transition: all 300ms ease-out;
 }
 
-.fade-slide-enter,
-.fade-slide-exit {
-    /* Can be used to set initial values, only is rendered for 1 frame */
-}
-
-.fade-slide-enter-active{
+.Modal.Open {
     animation: openModal 400ms ease-out forwards;
 }
 
-.fade-slide-exit-active{
+.Modal.Closed {
     animation: closeModal 1s ease-out forwards;
 }
 
